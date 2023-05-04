@@ -9,6 +9,7 @@ const app = Vue.createApp({
                     tiempo: "15 minutos",
                     url: "./receta1.html"
                },
+
                 {
                     nombre: "Pasta con salsa de tomate",
                     imagen: "./imatges/pasta_tomate.jpg",
