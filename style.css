@@ -4,3 +4,24 @@
 .color-menu{
     background-color: #6ba07d;
 }
+.recipes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.recipe-card {
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    padding: 20px;
+}
+
+.recipe-card img {
+    max-width: 100%;
+    height: auto;
+}
+.receta-img {
+    width: 150px;
+    height: 150px;
+}

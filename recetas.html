@@ -45,5 +45,20 @@
         </div>
     </div>
 </nav>
+<div id="app">
+    <div class="recipes-container">
+        <div v-for="receta in recetas" class="recipe-card">
+            <img :src="receta.imagen" :alt="receta.nombre">
+            <h2>{{ receta.nombre }}</h2>
+            <p>{{ receta.tiempo }}</p>
+            <ul>
+                <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
+            </ul>
+            <a :href="receta.url" class="btn btn-primary">Ver más</a>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
