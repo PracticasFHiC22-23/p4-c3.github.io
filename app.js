@@ -23,7 +23,30 @@ const app = Vue.createApp({
                     ingredientes: ["Carne picada", "Pan de hamburguesa", "Queso cheddar", "Lechuga", "Tomate", "Cebolla", "Ketchup", "Mostaza"],
                     tiempo: "20 minutos",
                     url: "./receta3.html"
+                },
+                {
+                    nombre: "Pizza Margarita",
+                    imagen: "./imatges/pizza_margarita.jpg",
+                    ingredientes: ["Masa de pizza", "Salsa de tomate", "Mozzarella", "Albahaca"],
+                    tiempo: "45 minutos",
+                    url: "./receta4.html"
+                },
+                {
+                    nombre: "Tacos de carne",
+                    imagen: "./imatges/tacos.jpg",
+                    ingredientes: ["Carne de res", "Tortillas de maíz", "Cebolla", "Cilantro", "Limón", "Sal", "Aceite de oliva"],
+                    tiempo: "40 minutos",
+                    url: "./receta5.html"
+                },
+                {
+                    nombre: "Pollo al Curry",
+                    imagen: "./imatges/pollo_curry.jpg",
+                    ingredientes: ["Pechuga de pollo", "Cebolla", "Ajo", "Jengibre", "Leche de coco", "Curry en polvo", "Aceite de oliva", "Sal"],
+                    tiempo: "40 minutos",
+                    url: "./receta6.html"
                 }
+
+
             ]
         }
     }
