@@ -59,40 +59,45 @@
         </div>
     </div>
     <div class="row mt-5 justify-content-center">
-
         <div id="app">
-            <div class="recipes-container">
-                <div v-for="receta in recetas.slice(0, 1)" class="recipe-card">
-                    <h2>Receta de la semana </h2>
-                    <img :src="receta.imagen" :alt="receta.nombre">
-                    <h3>{{ receta.nombre }}</h3>
-                    <p>{{ receta.tiempo }}</p>
-                    <ul>
-                        <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
-                    </ul>
-                    <a :href="receta.url" class="btn btn-primary">Ver más</a>
-                </div>
-
-                <div v-for="receta in recetas.slice(0, 1)" class="recipe-card">
-                    <h2>Alimento recomendado </h2>
-                    <img :src="receta.imagen" :alt="receta.nombre">
-                    <h3>{{ receta.nombre }}</h3>
-                    <p>{{ receta.tiempo }}</p>
-                    <ul>
-                        <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
-                    </ul>
-                    <a :href="receta.url" class="btn btn-primary">Ver más</a>
-                </div>
-
-                <div v-for="receta in recetas.slice(0, 1)" class="recipe-card">
-                    <h2>Dieta más popular </h2>
-                    <img :src="receta.imagen" :alt="receta.nombre">
-                    <h3>{{ receta.nombre }}</h3>
-                    <p>{{ receta.tiempo }}</p>
-                    <ul>
-                        <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
-                    </ul>
-                    <a :href="receta.url" class="btn btn-primary">Ver más</a>
+            <div class="container">
+                <div class="row">
+                    <div v-for="receta in recetas.slice(0, 1)" class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="recipe-card">
+                            <h2>Receta de la semana </h2>
+                            <img :src="receta.imagen" :alt="receta.nombre" class="img-fluid">
+                            <h3>{{ receta.nombre }}</h3>
+                            <p>{{ receta.tiempo }}</p>
+                            <ul>
+                                <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
+                            </ul>
+                            <a :href="receta.url" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                    <div v-for="receta in recetas.slice(0, 1)" class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="recipe-card">
+                            <h2>Alimento recomendado </h2>
+                            <img :src="receta.imagen" :alt="receta.nombre" class="img-fluid">
+                            <h3>{{ receta.nombre }}</h3>
+                            <p>{{ receta.tiempo }}</p>
+                            <ul>
+                                <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
+                            </ul>
+                            <a :href="receta.url" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                    <div v-for="receta in recetas.slice(0, 1)" class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="recipe-card">
+                            <h2>Dieta más popular </h2>
+                            <img :src="receta.imagen" :alt="receta.nombre" class="img-fluid">
+                            <h3>{{ receta.nombre }}</h3>
+                            <p>{{ receta.tiempo }}</p>
+                            <ul>
+                                <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
+                            </ul>
+                            <a :href="receta.url" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
