@@ -1,6 +1,7 @@
 .navbar-nav, .navbar-brand {
     font-size: 30px;
 }
+
 .color-menu{
     background-color: #6ba07d;
 }
@@ -9,12 +10,23 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     padding: 20px;
+    max-height: 75%;
 }
 
 .recipe-card {
     background-color: white;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
     padding: 20px;
+    height: 600px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+.recipe-card .btn-primary {
+    position: absolute; /* set the position of the button to absolute */
+    bottom: 20px; /* Mover el botón a la parte inferior del contenedor secundario */
+    left: 20px; /* Mover el botón a la parte izquierda del contenedor secundario */
+    margin: 0;
 }
 .recipe-card img {
     max-width: 100%;
