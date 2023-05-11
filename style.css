@@ -35,3 +35,10 @@
     width: 150px;
     height: 150px;
 }
+body {
+    padding-bottom: 50px; /* 70px es la altura del footer */
+}
+footer{
+    height: 50px;
+}
+
