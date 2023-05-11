@@ -47,9 +47,18 @@ const app = Vue.createApp({
                 }
 
 
-            ]
+            ],
+            busqueda: ''
+        }
+    },
+    computed: {
+        recetasFiltradas() {
+            if (this.busqueda === '') {
+                return this.recetas
+            } else {
+                return this.recetas.filter(receta => receta.nombre.toLowerCase().includes(this.busqueda.toLowerCase()))
+            }
         }
     }
 })
-
 app.mount('#app')
