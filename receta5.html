@@ -45,33 +45,39 @@
         </div>
     </div>
 </nav>
-<div id="app">
-    <div class="container">
-        <div class="row">
-            <div class="search-bar my-3">
-                <input type="text" v-model="busqueda" class="form-control form-control-lg" placeholder="Buscar dieta...">
-            </div>
-
-            <div v-for="dieta in dietasFiltradas" :key="dieta.nombre" class="col-12">
-                <h2>{{ dieta.nombre }}</h2>
-                <div class="dieta-card w-100">
-                    <!-- Contenido de la tarjeta -->
-                    <div class="comidas-container">
-                        <div v-for="comida in dieta.comidas" :key="comida" class="comida-item"> {{ comida }}</div>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <!--  kjhb   -->
-        </div>
-    </div>
+<div class="recipe-card">
+    <img src="./imatges/ensalada_cesar.jpg" alt="Ensalada César">
+    <h2>Ensalada César</h2>
+    <p>15 minutos</p>
+    <ul>
+        <li>Lechuga</li>
+        <li>Pollo</li>
+        <li>Queso parmesano</li>
+        <li>Pan tostado</li>
+        <li>Salsa César</li>
+    </ul>
+    <h3>Ingredientes para la salsa César:</h3>
+    <ul>
+        <li>1/2 taza de mayonesa</li>
+        <li>1/4 taza de queso parmesano rallado</li>
+        <li>2 cucharadas de zumo de limón</li>
+        <li>2 cucharaditas de mostaza Dijon</li>
+        <li>1 cucharadita de salsa Worcestershire</li>
+        <li>1 diente de ajo picado</li>
+        <li>1/4 cucharadita de sal</li>
+        <li>1/4 cucharadita de pimienta negra molida</li>
+        <li>3-4 cucharadas de agua para ajustar la consistencia</li>
+    </ul>
+    <h3>Pasos:</h3>
+    <ol>
+        <li>En una ensaladera grande, mezcle la lechuga, el pollo y el queso parmesano.</li>
+        <li>Para hacer la salsa, combine la mayonesa, el queso parmesano, el zumo de limón, la mostaza Dijon, la salsa Worcestershire, el ajo, la sal y la pimienta en un tazón y mezcle bien. Añada agua según sea necesario para ajustar la consistencia.</li>
+        <li>Vierta la salsa sobre la ensalada y mezcle bien.</li>
+        <li>Para hacer los croutons, corte el pan en cubos pequeños y fríalos en aceite caliente hasta que estén dorados y crujientes.</li>
+        <li>Sirva la ensalada con los croutons y disfrute.</li>
+    </ol>
 </div>
-<footer class="navbar navbar-expand-lg navbar-dark color-menu mt-auto fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-text ms-auto">&copy; 2023 FoodLand</div>
-    </div>
-</footer>
+
+
 </body>
 </html>
