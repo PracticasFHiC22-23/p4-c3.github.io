@@ -16,6 +16,7 @@
     </script>
 </head>
 <body>
+<!-- Resto del código -->
 <nav class="navbar navbar-expand-lg navbar-dark color-menu">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">FOODLAND</a>
@@ -45,6 +46,7 @@
         </div>
     </div>
 </nav>
+
 <div id="app">
     <div class="container pb-3">
         <div class="row">
@@ -60,24 +62,45 @@
                 </select>
                 
             </div>
+            <!-- Resto del código -->
             <div v-for="receta in recetasFiltradas" :key="receta.nombre" class="col-sm-6 col-md-4 col-lg-3">
                 <div class="recipe-card">
                     <img :src="receta.imagen" :alt="receta.nombre" class="img-fluid">
                     <h2>{{ receta.nombre }}</h2>
                     <p>Tiempo: {{ receta.tiempo }} minutos</p>
+
+                      
+                    
                     <ul>
-                        <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
+                         <!--Aquí asumimos que cada ingrediente es un objeto con propiedades 'nombre' y 'precio'-->
+                        <li v-for="ingrediente in receta.ingredientes">{{ ingrediente.nombre }} - {{ ingrediente.precio }} €</li>
                     </ul>
+                    
                     <a :href="receta.url" class="btn btn-primary">Ver más</a>
+                    <button @click="agregarALaCesta(receta.ingredientes); toggleCesta()">Añadir a la cesta</button>
+
                 </div>
             </div>
+
+            <div id="cestaModal" v-if="cestaAbierta">
+                <h2>Tu Cesta</h2>
+                <p>Total: {{ precioTotal }} €</p>
+                <button @click="toggleCesta">Cerrar</button>
+            </div>
+            
         </div>
     </div>
+</div>
+
+<!-- Resto del código -->
 </div>
 <footer class="navbar navbar-expand-lg navbar-dark color-menu mt-auto fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text ms-auto">&copy; 2023 FoodLand</div>
     </div>
 </footer>
+
+</body>
+</html>
 </body>
 </html>
