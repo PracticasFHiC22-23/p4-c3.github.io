@@ -45,5 +45,37 @@
         </div>
     </div>
 </nav>
+<div id="app">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Ingrediente</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <ul>
+                    <li v-for="(item, index) in cesta" :key="index">
+                      {{ item.nombre }}: {{ item.precio }}
+                    </li>
+                  </ul>
+                 
+                <tr v-for="ingrediente in cesta" :key="ingrediente.nombre">
+                    <td>{{ ingrediente.nombre }}</td>
+                    <td>{{ ingrediente.precio }}€</td>
+                    <td>{{ ingrediente.cantidad }}</td>
+                </tr>
+                 
+                <tr>
+                    <td colspan="2">Total</td>
+                    <td>{{ precioTotal }}€</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>
