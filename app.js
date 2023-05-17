@@ -6,7 +6,7 @@ const app = Vue.createApp({
                     nombre: "Ensalada César",
                     imagen: "./imatges/ensalada_cesar.jpg",
                     ingredientes: ["Lechuga", "Pollo", "Queso parmesano", "Pan tostado", "Salsa César"],
-                    tiempo: "15 minutos",
+                    tiempo: 15,
                     url: "./receta1.html"
                 },
 
@@ -14,35 +14,35 @@ const app = Vue.createApp({
                     nombre: "Pasta con salsa de tomate",
                     imagen: "./imatges/pasta_tomate.jpg",
                     ingredientes: ["Pasta", "Tomates", "Cebolla", "Ajo", "Aceite de oliva", "Sal"],
-                    tiempo: "30 minutos",
+                    tiempo: 30,
                     url: "./receta2.html"
                 },
                 {
                     nombre: "Hamburguesa con queso",
                     imagen: "./imatges/hamburguesa.jpg",
                     ingredientes: ["Carne picada", "Pan de hamburguesa", "Queso cheddar", "Lechuga", "Tomate", "Cebolla", "Ketchup", "Mostaza"],
-                    tiempo: "20 minutos",
+                    tiempo: 20,
                     url: "./receta3.html"
                 },
                 {
                     nombre: "Pizza Margarita",
                     imagen: "./imatges/pizza_margarita.jpg",
                     ingredientes: ["Masa de pizza", "Salsa de tomate", "Mozzarella", "Albahaca"],
-                    tiempo: "45 minutos",
+                    tiempo: 45,
                     url: "./receta4.html"
                 },
                 {
                     nombre: "Tacos de carne",
                     imagen: "./imatges/tacos.jpg",
                     ingredientes: ["Carne de res", "Tortillas de maíz", "Cebolla", "Cilantro", "Limón", "Sal", "Aceite de oliva"],
-                    tiempo: "40 minutos",
+                    tiempo: 40,
                     url: "./receta5.html"
                 },
                 {
                     nombre: "Pollo al Curry",
                     imagen: "./imatges/pollo_curry.jpg",
                     ingredientes: ["Pechuga de pollo", "Cebolla", "Ajo", "Jengibre", "Leche de coco", "Curry en polvo", "Aceite de oliva", "Sal"],
-                    tiempo: "40 minutos",
+                    tiempo: 40,
                     url: "./receta6.html"
                 }
 
@@ -102,16 +102,19 @@ const app = Vue.createApp({
                     ]
                 }
                 ],
-            busqueda: ''
+            busqueda: '',
+            busquedaRecetas: '',
+            busquedDiestas: '',
+            tiempoFiltrado: 60,
         }
     },
     computed: {
         recetasFiltradas() {
-            if (this.busqueda === '') {
-                return this.recetas
-            } else {
-                return this.recetas.filter(receta => receta.nombre.toLowerCase().includes(this.busqueda.toLowerCase()))
-            }
+            return this.recetas.filter(receta => {
+                let matchesSearch = receta.nombre.toLowerCase().includes(this.busquedaRecetas.toLowerCase());
+                let withinTimeLimit = receta.tiempo <= this.tiempoFiltrado;
+                return matchesSearch && withinTimeLimit;
+            });
         },
         dietasFiltradas() {
             if (this.busqueda === '') {
@@ -120,6 +123,7 @@ const app = Vue.createApp({
                 return this.dietas.filter(dietas => dietas.nombre.toLowerCase().includes(this.busqueda.toLowerCase()));
             }
         }
+        
     }
 
 })

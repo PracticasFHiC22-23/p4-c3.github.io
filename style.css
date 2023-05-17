@@ -1,7 +1,6 @@
 .navbar-nav, .navbar-brand {
     font-size: 30px;
 }
-
 .color-menu{
     background-color: #6ba07d;
 }
@@ -21,12 +20,37 @@
     margin-top: 10px;
     position: relative;
 }
+
+.recipe-card-detail {
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    padding: 20px;
+    max-width: 960px;
+    margin: 20px auto ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+/*
+.recipe-card {
+    padding: 20px;
+    max-width: 960px;
+    margin: 20px auto ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+ */
 .recipe-card .btn-primary {
     position: absolute; /* set the position of the button to absolute */
     bottom: 20px; /* Mover el botón a la parte inferior del contenedor secundario */
     left: 20px; /* Mover el botón a la parte izquierda del contenedor secundario */
     margin: 0;
 }
+
 .recipe-card img {
     max-width: 100%;
     height: auto;
@@ -34,6 +58,38 @@
 .receta-img {
     width: 150px;
     height: 150px;
+}
+.col {
+    flex-basis: calc(40% - 10px);
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+.col img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+.col h2 {
+    color: black;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 2px solid black;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+.col p {
+    line-height: 1.5;
+}
+.col hr {
+    border: none;
+    border-top: 1px solid #cccccc;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 body {
     padding-bottom: 50px; /* 70px es la altura del footer */
@@ -71,4 +127,16 @@ footer{
     padding: 10px;
     width: calc(100% / 7 - 10px); /* Ajusta el ancho de cada item según la cantidad de columnas deseadas */
     margin-bottom: 10px;
+}
+
+.col h4 {
+    display: inline-block;
+    margin: 10px 0px;
+    padding: 6px 20px;
+    background-color: #5b907d;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 3px;
 }
