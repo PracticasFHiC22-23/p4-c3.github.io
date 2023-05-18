@@ -125,8 +125,19 @@ footer{
 .comida-item {
     background-color: lightgray;
     padding: 10px;
-    width: calc(100% / 7 - 10px); /* Ajusta el ancho de cada item según la cantidad de columnas deseadas */
     margin-bottom: 10px;
+}
+
+/* Estilos para pantallas más grandes */
+.comida-item {
+    width: calc(100% / 7 - 10px); /* Ajusta el ancho de cada item según la cantidad de columnas deseadas */
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .comida-item {
+        width: calc(100% / 1 - 10px); /* Ajusta el ancho de cada item según la cantidad de columnas deseadas para pantallas más pequeñas */
+    }
 }
 
 .col h4 {
