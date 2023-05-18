@@ -195,25 +195,49 @@ const app = Vue.createApp({
             busquedaRecetas: '',
             busquedDiestas: '',
             tiempoFiltrado: 900,
-            cesta: [],
             cestaAbierta: false,
+            pantallaPagar: false,
+            precioTotal: 0,
+            cesta: []
+
         }
     },
     methods: {
         agregarALaCesta(ingredientes) {
-            ingredientes.forEach(ingrediente => {
-                let found = this.cesta.find(item => item.nombre === ingrediente.nombre);
-                if(found){
-                    found.cantidad += 1;
-                }else{
-                    this.cesta.push({
-                        nombre: ingrediente.nombre,
-                        precio: ingrediente.precio,
-                        cantidad: 1
-                    });
-                }
-            });
+            console.log(ingredientes)
+            this.cesta.push(...ingredientes);
+            this.calcularPrecioTotal();
+            this.cestaAbierta = true;
         },
+        cerrarCesta() {
+            this.cestaAbierta = false;
+            this.cesta = [];
+            this.precioTotal = 0;
+        },
+        seguir() {
+            this.cestaAbierta = false;
+        },
+        pagar() {
+            this.cestaAbierta = false;
+            this.pantallaPagar = true;
+            this.cesta = [];
+            this.precioTotal = 0;
+        },
+        cerrarPagar() {
+            this.cestaAbierta = false;
+            this.pantallaPagar = false;
+            this.cesta = [];
+            this.precioTotal = 0;
+        },
+        pagarFinal() {
+            this.cestaAbierta = false;
+            this.pantallaPagar = false;
+            this.cesta = [];
+            this.precioTotal = 0;
+        },
+        calcularPrecioTotal() {
+            this.precioTotal = this.cesta.reduce((total, ingrediente) => total + ingrediente.precio, 0);
+        }
     },
     computed: {
         recetasFiltradas() {
@@ -238,9 +262,8 @@ const app = Vue.createApp({
                 return total + (ingrediente.precio * ingrediente.cantidad);
             }, 0);
         },
-        toggleCesta() {
-            this.cestaAbierta = !this.cestaAbierta;
-        }
+
+
     }
 })
 app.mount('#app')

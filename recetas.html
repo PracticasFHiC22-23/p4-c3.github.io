@@ -68,28 +68,56 @@
                     <option value="45">45 minutos</option>
                 </select>
             </div>
-            
+
             <div v-for="receta in recetasFiltradas" :key="receta.nombre" class="col-sm-6 col-md-4 col-lg-3">
                 <div class="recipe-card">
                     <img :src="receta.imagen" :alt="receta.nombre" class="img-fluid">
                     <h2>{{ receta.nombre }}</h2>
                     <p>Tiempo: {{ receta.tiempo }} minutos</p>
                     <ul>
-                        <!--Aquí asumimos que cada ingrediente es un objeto con propiedades 'nombre' y 'precio'-->
                         <li v-for="ingrediente in receta.ingredientes">{{ ingrediente.nombre }} - {{ ingrediente.precio }} €</li>
                     </ul>
                     <a :href="receta.url" class="btn btn-primary">Ver más</a>
-                    <button @click="agregarALaCesta(receta.ingredientes); toggleCesta()">Añadir a la cesta</button>
+                    <button @click="agregarALaCesta(receta.ingredientes)">Añadir a la cesta</button>
                 </div>
-            </div>
-            <div id="cestaModal" v-if="cestaAbierta">
-                <h2>Tu Cesta</h2>
-                <p>Total: {{ precioTotal }} €</p>
-                <button @click="toggleCesta">Cerrar</button>
             </div>
         </div>
     </div>
+    <div id="cestaModal" :class="{ 'abierto': cestaAbierta }">
+        <div class="contenido-modal">
+            <h2>Tu Cesta</h2>
+            <li v-for="ingrediente in cesta">{{ ingrediente.nombre }} - {{ ingrediente.precio }} €</li>
+
+
+            <p>Total: {{ precioTotal }} €</p>
+            <button @click="seguir">Seguir comprando</button>
+            <button @click="pagar">Pagar</button>
+            <button @click="cerrarCesta">Cerrar</button>
+        </div>
+    </div>
+    <div id="pagarModal" :class="{ 'abierto': pantallaPagar }">
+        <div class="contenido-modal">
+            <h2>Tu Pago</h2>
+            <p>Total: {{ precioTotal }} €</p>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="mail" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Dirección</label>
+                <input type="adress" class="form-control" id="adress" name="adress">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Targeta de crédito</label>
+                <input type="Targeta" class="form-control" id="Targeta" name="Targeta">
+            </div>
+
+            <button @click="pagarFinal">Pagar</button>
+            <button @click="cerrarPagar">Cerrar</button>
+        </div>
+    </div>
 </div>
+
 
 
 <!-- Resto del código -->
