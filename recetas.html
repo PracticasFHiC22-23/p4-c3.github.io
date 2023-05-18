@@ -22,7 +22,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark color-menu">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
-            <img src="./imatges/foodland-logo.jpeg" alt="Logo de Foodland" width="30" height="30" class="d-inline-block align-text-top">
+            <img src="./imatges/foodland-logo.jpeg" alt="Logo de Foodland" width="30" height="30"
+                 class="d-inline-block align-text-top">
             FOODLAND
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -46,7 +47,8 @@
     <div class="container">
         <div class="row">
             <div class="search-bar my-3">
-                <input type="text" v-model="busquedaPorNombre" class="form-control form-control-lg" placeholder="Buscar receta por nombre...">
+                <input type="text" v-model="busquedaPorNombre" class="form-control form-control-lg"
+                       placeholder="Buscar receta por nombre...">
             </div>
 
             <div class="search-bar my-3">
@@ -66,10 +68,13 @@
                     <h2>{{ receta.nombre }}</h2>
                     <p>Tiempo: {{ receta.tiempo }} minutos</p>
                     <ul>
-                        <li v-for="ingrediente in receta.ingredientes">{{ ingrediente.nombre }} - {{ ingrediente.precio }} €</li>
+                        <li v-for="ingrediente in receta.ingredientes">{{ ingrediente.nombre }} - {{ ingrediente.precio
+                            }} €
+                        </li>
                     </ul>
                     <a :href="receta.url" class="btn btn-primary">Ver más</a>
-                    <button @click="agregarALaCesta(receta.ingredientes)" class="btn btn-success"><i class="bi bi-cart"></i></button>
+                    <button @click="agregarALaCesta(receta.ingredientes)" class="btn btn-success"><i
+                            class="bi bi-cart"></i></button>
                 </div>
             </div>
         </div>
@@ -82,7 +87,7 @@
 
             <p>Total: {{ precioTotal }} €</p>
             <button @click="seguir" class="btn btn-primary mt-2">Seguir comprando</button>
-            <button @click="pagar"  class="btn btn-success mt-2">Pagar</button>
+            <button @click="pagar" class="btn btn-success mt-2">Pagar</button>
             <button @click="cerrarCesta" class="btn btn-danger mt-2">Cerrar</button>
         </div>
     </div>
@@ -108,10 +113,6 @@
         </div>
     </div>
 </div>
-
-
-
-<!-- Resto del código -->
 </div>
 <footer class="navbar navbar-expand-lg navbar-dark color-menu mt-auto">
     <div class="container-fluid">

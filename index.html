@@ -17,29 +17,30 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark color-menu">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="./imatges/foodland-logo.jpeg" alt="Logo de Foodland" width="30" height="30" class="d-inline-block align-text-top">
-                FOODLAND
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="recetas.html">Recetas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dietas.html">Dietas</a>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark color-menu">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <img src="./imatges/foodland-logo.jpeg" alt="Logo de Foodland" width="30" height="30"
+                 class="d-inline-block align-text-top">
+            FOODLAND
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="recetas.html">Recetas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dietas.html">Dietas</a>
+                </li>
+            </ul>
         </div>
-    </nav>
-    
+    </div>
+</nav>
+
 <div class="container">
     <div class="row mt-5 justify-content-center">
         <div class="col-md-8">
@@ -65,8 +66,10 @@
 
                             <ul>
                                 <!--Cada ingrediente es un objeto con propiedades 'nombre' y 'precio'-->
-                               <li v-for="ingrediente in receta.ingredientes">{{ ingrediente.nombre }} - {{ ingrediente.precio }} €</li>
-                           </ul>
+                                <li v-for="ingrediente in receta.ingredientes">{{ ingrediente.nombre }} - {{
+                                    ingrediente.precio }} €
+                                </li>
+                            </ul>
 
                             <a :href="receta.url" class="btn btn-primary">Ver más</a>
                         </div>
@@ -82,19 +85,19 @@
                             <a :href="alimento.url" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
-                    
+
                     <div v-for="dieta in dietas.slice(0, 1)" class="col-sm-6 col-md-4 col-lg-3">
                         <div class="recipe-card">
                             <h2>Dieta más popular </h2>
                             <img :src="dieta.imagen" :alt="dieta.nombre" class="img-fluid">
                             <h3>{{ dieta.nombre }}</h3>
                             <p> {{ dieta.resumen }}</p>
-                           
-                           <a :href="dieta.url" class="btn btn-primary">Ver más</a>
+
+                            <a :href="dieta.url" class="btn btn-primary">Ver más</a>
 
                         </div>
                     </div>
-                     
+
                 </div>
             </div>
         </div>
