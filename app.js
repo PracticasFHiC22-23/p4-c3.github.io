@@ -216,13 +216,6 @@ const app = Vue.createApp({
         },
     },
     computed: {
-        recetasFiltradas2() {
-            return this.recetas.filter(receta => {
-                let matchesSearch = receta.nombre.toLowerCase().includes(this.busquedaRecetas.toLowerCase());
-                let withinTimeLimit = receta.tiempo <= this.tiempoFiltrado;
-                return matchesSearch && withinTimeLimit;
-            });
-        },
         recetasFiltradas() {
             if (this.busquedaPorNombre === '' && this.tiempoFiltrado === 900) {
                 return this.recetas;
