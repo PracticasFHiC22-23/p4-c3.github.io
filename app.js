@@ -191,9 +191,10 @@ const app = Vue.createApp({
 
             ],
             busqueda: '',
+            busquedaPorNombre: '',
             busquedaRecetas: '',
             busquedDiestas: '',
-            tiempoFiltrado: 60,
+            tiempoFiltrado: 900,
             cesta: [],
             cestaAbierta: false,
         }
@@ -215,13 +216,23 @@ const app = Vue.createApp({
         },
     },
     computed: {
-        recetasFiltradas() {
+        recetasFiltradas2() {
             return this.recetas.filter(receta => {
                 let matchesSearch = receta.nombre.toLowerCase().includes(this.busquedaRecetas.toLowerCase());
                 let withinTimeLimit = receta.tiempo <= this.tiempoFiltrado;
                 return matchesSearch && withinTimeLimit;
             });
         },
+        recetasFiltradas() {
+            if (this.busquedaPorNombre === '' && this.tiempoFiltrado === 900) {
+                return this.recetas;
+            } else {
+                return this.recetas.filter(receta => 
+                    receta.nombre.toLowerCase().includes(this.busquedaPorNombre.toLowerCase()) && 
+                    receta.tiempo <= this.tiempoFiltrado
+                );
+            }
+        },        
         dietasFiltradas() {
             if (this.busqueda === '') {
                 return this.dietas
