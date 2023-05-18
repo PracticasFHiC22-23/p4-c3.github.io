@@ -16,10 +16,15 @@
     </script>
 </head>
 <body>
+<!-- Resto del código -->
 <nav class="navbar navbar-expand-lg navbar-dark color-menu">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">FOODLAND</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="index.html">
+            <img src="./imatges/foodland-logo.jpeg" alt="Logo de Foodland" width="30" height="30" class="d-inline-block align-text-top">
+            FOODLAND
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -45,11 +50,15 @@
         </div>
     </div>
 </nav>
+
 <div id="app">
-    <div class="container pb-3">
+    <div class="container">
         <div class="row">
             <div class="search-bar my-3">
-                <input type="text" v-model="busqueda" class="form-control form-control-lg" placeholder="Buscar receta...">
+                <input type="text" v-model="busquedaPorNombre" class="form-control form-control-lg" placeholder="Buscar receta por nombre...">
+            </div>
+
+            <div class="search-bar my-3">
                 <select v-model="tiempoFiltrado" class="form-select form-select-lg mt-3">
                     <option value="900">Todos los tiempos</option>
                     <option value="15">15 minutos</option>
@@ -58,26 +67,40 @@
                     <option value="40">40 minutos</option>
                     <option value="45">45 minutos</option>
                 </select>
-                
             </div>
+            
             <div v-for="receta in recetasFiltradas" :key="receta.nombre" class="col-sm-6 col-md-4 col-lg-3">
                 <div class="recipe-card">
                     <img :src="receta.imagen" :alt="receta.nombre" class="img-fluid">
                     <h2>{{ receta.nombre }}</h2>
                     <p>Tiempo: {{ receta.tiempo }} minutos</p>
                     <ul>
-                        <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
+                        <!--Aquí asumimos que cada ingrediente es un objeto con propiedades 'nombre' y 'precio'-->
+                        <li v-for="ingrediente in receta.ingredientes">{{ ingrediente.nombre }} - {{ ingrediente.precio }} €</li>
                     </ul>
                     <a :href="receta.url" class="btn btn-primary">Ver más</a>
+                    <button @click="agregarALaCesta(receta.ingredientes); toggleCesta()">Añadir a la cesta</button>
                 </div>
+            </div>
+            <div id="cestaModal" v-if="cestaAbierta">
+                <h2>Tu Cesta</h2>
+                <p>Total: {{ precioTotal }} €</p>
+                <button @click="toggleCesta">Cerrar</button>
             </div>
         </div>
     </div>
+</div>
+
+
+<!-- Resto del código -->
 </div>
 <footer class="navbar navbar-expand-lg navbar-dark color-menu mt-auto fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text ms-auto">&copy; 2023 FoodLand</div>
     </div>
 </footer>
+
+</body>
+</html>
 </body>
 </html>
