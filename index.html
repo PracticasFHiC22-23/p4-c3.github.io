@@ -62,42 +62,46 @@
         <div id="app">
             <div class="container">
                 <div class="row">
+
                     <div v-for="receta in recetas.slice(0, 1)" class="col-sm-6 col-md-4 col-lg-3">
                         <div class="recipe-card">
                             <h2>Receta de la semana </h2>
                             <img :src="receta.imagen" :alt="receta.nombre" class="img-fluid">
                             <h3>{{ receta.nombre }}</h3>
-                            <p>{{ receta.tiempo }}</p>
+                            <p>{{ receta.tiempo }} minutos</p>
+
                             <ul>
-                                <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
-                            </ul>
+                                <!--Cada ingrediente es un objeto con propiedades 'nombre' y 'precio'-->
+                               <li v-for="ingrediente in receta.ingredientes">{{ ingrediente.nombre }} - {{ ingrediente.precio }} €</li>
+                           </ul>
+
                             <a :href="receta.url" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
-                    <div v-for="receta in recetas.slice(0, 1)" class="col-sm-6 col-md-4 col-lg-3">
+
+                    <div v-for="alimento in alimentos.slice(0, 1)" class="col-sm-6 col-md-4 col-lg-3">
                         <div class="recipe-card">
                             <h2>Alimento recomendado </h2>
-                            <img :src="receta.imagen" :alt="receta.nombre" class="img-fluid">
-                            <h3>{{ receta.nombre }}</h3>
-                            <p>{{ receta.tiempo }}</p>
-                            <ul>
-                                <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
-                            </ul>
-                            <a :href="receta.url" class="btn btn-primary">Ver más</a>
+                            <img :src="alimento.imagen" :alt="alimento.nombre" class="img-fluid">
+                            <h3>{{ alimento.nombre }}</h3>
+                            <p>{{ alimento.resumen }} </p>
+
+                            <a :href="alimento.url" class="btn btn-primary">Ver más</a>
                         </div>
                     </div>
-                    <div v-for="receta in recetas.slice(0, 1)" class="col-sm-6 col-md-4 col-lg-3">
+                    
+                    <div v-for="dieta in dietas.slice(0, 1)" class="col-sm-6 col-md-4 col-lg-3">
                         <div class="recipe-card">
                             <h2>Dieta más popular </h2>
-                            <img :src="receta.imagen" :alt="receta.nombre" class="img-fluid">
-                            <h3>{{ receta.nombre }}</h3>
-                            <p>{{ receta.tiempo }}</p>
-                            <ul>
-                                <li v-for="ingrediente in receta.ingredientes">{{ ingrediente }}</li>
-                            </ul>
-                            <a :href="receta.url" class="btn btn-primary">Ver más</a>
+                            <img :src="dieta.imagen" :alt="dieta.nombre" class="img-fluid">
+                            <h3>{{ dieta.nombre }}</h3>
+                            <p> {{ dieta.resumen }}</p>
+                           
+                           <a :href="dieta.url" class="btn btn-primary">Ver más</a>
+
                         </div>
                     </div>
+                     
                 </div>
             </div>
         </div>
