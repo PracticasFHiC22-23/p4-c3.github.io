@@ -11,7 +11,6 @@ const app = Vue.createApp({
                         {nombre: "Queso parmesano", precio: 7.5},
                         {nombre: "Pan tostado", precio: 1.5},
                         {nombre: "Salsa César", precio: 4.5},
-                        // agregar los precios restantes de los ingredientes...
                     ],
                     tiempo: 15,
                     url: "./receta1.html"
@@ -27,7 +26,6 @@ const app = Vue.createApp({
                         {nombre: "Ajo", precio: 1.5},
                         {nombre: "Aceite de oliva", precio: 4.5},
                         {nombre: "Sal", precio: 4.5},
-                        // agregar los precios restantes de los ingredientes...
                     ],
                     tiempo: 30,
                     url: "./receta2.html"
@@ -45,7 +43,6 @@ const app = Vue.createApp({
                         {nombre: "Cebolla", precio: 4.5},
                         {nombre: "Ketchup", precio: 4.5},
                         {nombre: "Mostaza", precio: 4.5},
-                        // agregar los precios restantes de los ingredientes...
                     ],
                     tiempo: 20,
                     url: "./receta3.html"
@@ -59,7 +56,6 @@ const app = Vue.createApp({
                         {nombre: "Salsa de tomate", precio: 4.5},
                         {nombre: "Mozzarella", precio: 7.5},
                         {nombre: "Albahaca", precio: 1.5},
-                        // agregar los precios restantes de los ingredientes...
                     ],
                     tiempo: 45,
                     url: "./receta4.html"
@@ -76,7 +72,6 @@ const app = Vue.createApp({
                         {nombre: "Limón", precio: 7.5},
                         {nombre: "Sal", precio: 1.5},
                         {nombre: "Aceite de oliva", precio: 7.5},
-                        // agregar los precios restantes de los ingredientes...
                     ],
                     tiempo: 40,
                     url: "./receta5.html"
@@ -94,16 +89,18 @@ const app = Vue.createApp({
                         {nombre: "Curry en polvo", precio: 1.5},
                         {nombre: "Aceite de oliva", precio: 7.5},
                         {nombre: "SaL", precio: 7.5},
-                        // agregar los precios restantes de los ingredientes...
                     ],
                     tiempo: 40,
                     url: "./receta6.html"
                 }
             ],
-            //...resto de la data
+            
             dietas: [
                 {
                     nombre: "Vegetariana",
+                    imagen: "./imatges/dieta-vegetariana.jpg",
+                    resumen: "Dieta diseñada para personas vegetarianas y/o veganas. Con toda la proteina, vitamina, hidratos y demás necesidades para mantener el cuerpo en estado saludable.",
+                    url: "./dieta1.html",
                     comidas: [
                         ["Lunes almuerzo: Ensalada de tomate, aguacate, queso feta, aceitunas y aderezo de aceite de oliva y limón"],
                         ["Martes almuerzo: Ensalada de remolacha, rúcula, queso de cabra, nueces y vinagreta de miel y mostaza"],
@@ -130,6 +127,7 @@ const app = Vue.createApp({
                 },
                 {
                     nombre: "Mediterránea",
+                    resumen: "Dieta diseñada para amantes de la cocina Mediterránea! Viaja por las costas de España, Francia, Italia y Grecia con estos deliciosos platos!.",
                     comidas: [
                         ["Lunes almuerzo: Ensalada griega con lechuga, tomate, pepino, cebolla roja, aceitunas negras, queso feta y aderezo de aceite de oliva y limón"],
                         ["Martes almuerzo: Bruschetta de pan integral con tomate, albahaca, aceite de oliva y queso mozzarella."],
@@ -156,6 +154,7 @@ const app = Vue.createApp({
                 },
                 {
                     nombre: "Hierro y proteinas",
+                    resumen: "Dieta diseñada para los amantes de la proteina que necesitan esa cantidad extra por su alta actividad física en el gimnasio o en el trabajo",
                     comidas: [
                     "Lunes desayuno: Tortilla de claras de huevo con espinacas y champiñones, una rebanada de pan integral, un vaso de jugo de naranja.",
                     "Martes desayuno: Batido de proteínas hecho con leche de almendras, plátano y mantequilla de maní, una porción de avena con nueces.",
@@ -181,6 +180,16 @@ const app = Vue.createApp({
                 ]
                 }
                 ],
+
+            alimentos: [ 
+                {
+                    nombre: "Queso parmesano",
+                    resumen: "Delicioso queso italiano parmesano. Ideal para todo tipo de pastas y para acompañar platos y darle un gusto especial",
+                    imagen: "./imatges/queso-parmesano.jpeg",
+                    url: "./alimento1.html",
+                }
+
+            ],
             busqueda: '',
             busquedaRecetas: '',
             busquedDiestas: '',
@@ -206,7 +215,6 @@ const app = Vue.createApp({
         },
     },
     computed: {
-        //...resto de computed properties
         recetasFiltradas() {
             return this.recetas.filter(receta => {
                 let matchesSearch = receta.nombre.toLowerCase().includes(this.busquedaRecetas.toLowerCase());
